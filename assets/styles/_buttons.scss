@@ -1,0 +1,53 @@
+button {
+  background-color: unset;
+  outline: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.button-action-next {
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 16px 22px;
+  box-sizing: border-box;
+  background-color: $color-text-title;
+  color: white;
+  border-radius: 37px;
+  transition: background-color 0.3s ease;
+
+  &:hover:not(:disabled) {
+    background-color: $color-text-button-hover;
+
+    &:active {
+      background-color: $color-text-button-active;
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $color-text-button-disabled;
+  }
+}
+
+.button-action-cancel {
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  padding: 16px 22px;
+  box-sizing: border-box;
+  background-color: transparent;
+  color: $color-text-button-blue;
+  border-radius: 37px;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: $color-text-button-blue-hover;
+
+    &:active {
+      background-color: $color-text-button-blue-active;
+    }
+  }
+}
