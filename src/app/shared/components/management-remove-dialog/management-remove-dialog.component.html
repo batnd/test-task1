@@ -1,0 +1,19 @@
+<div class="modal-overlay" (click)="closeDialog()" *ngIf="showDialog">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-title">
+      <h2>Удаление строк</h2>
+    </div>
+    <div class="modal-form">
+      <form>
+        <p *ngIf="clientsToRemove.length > 0">Удалить выбранные строки ({{ clientsToRemove.length }})?</p>
+        <p *ngIf="clientsToRemove.length === 0">Вы ничего не выбрали для удаления!</p>
+        <div class="form-actions">
+          <button type="button" [class]="clientsToRemove.length > 0 ? 'button-action-cancel' : 'button-action-next'" (click)="closeDialog()">
+            Отмена
+          </button>
+          <button (click)="remove()" *ngIf="clientsToRemove.length > 0" type="button" class="button-action-next button-blue">Удалить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

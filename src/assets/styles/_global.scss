@@ -1,0 +1,18 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: $color-text-base;
+  overflow: hidden;
+}
+
+.os-scrollbar-handle {
+  margin-right: 5px;
+  background-color: #c6d1e0 !important;
+  height: 30%;
+  margin-top: 25px;
+}

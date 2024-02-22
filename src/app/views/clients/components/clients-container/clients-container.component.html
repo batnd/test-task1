@@ -1,0 +1,18 @@
+<div class="clients-container">
+  <app-clients-list *ngIf="clients$ | async as clients"
+                    [clients]="clients"
+                    (openDialogEmit)="openDialog()"
+                    (openDialogWithClientEmit)="openDialogForEdit($event)"
+                    (openRemoveDialogEmit)="openRemoveDialog($event)"
+                    (onSortClientsEmit)="sortClients($event)"
+  ></app-clients-list>
+</div>
+<app-management-add-dialog
+  (editClient)="editClient($event)"
+  (addNewClient)="addNewClient($event)"
+  #modal
+>
+</app-management-add-dialog>
+<app-management-remove-dialog
+  (removeClientsEmit)="removeClients($event)"
+></app-management-remove-dialog>

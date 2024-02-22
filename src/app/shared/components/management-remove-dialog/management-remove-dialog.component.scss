@@ -1,0 +1,58 @@
+@import "src/assets/styles/variables";
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(38, 50, 56, 0.32);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  .modal-content {
+    background-color: white;
+    padding: 44px 40px 40px;
+    border-radius: 20px;
+    width: 450px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+    .modal-title {
+      margin-bottom: 28px;
+
+      h2 {
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        color: $color-text-title-modal;
+        line-height: 1;
+      }
+    }
+
+    .modal-form {
+
+      form {
+        display: flex;
+        flex-direction: column;
+        row-gap: 85px;
+
+        p {
+          font-family: "Roboto", sans-serif;
+          font-weight: 400;
+          font-size: 18px;
+        }
+
+        .form-actions {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          column-gap: 5px;
+        }
+      }
+    }
+  }
+}

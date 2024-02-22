@@ -1,0 +1,69 @@
+<div class="modal-overlay" (click)="closeDialog()" *ngIf="showDialog">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-title">
+      <h2 *ngIf="!editMode">Новый клиент</h2>
+      <h2 *ngIf="editMode">Редактирование</h2>
+    </div>
+    <div class="modal-form">
+      <form (submit)="save()" [formGroup]="formGroup">
+        <div class="form-group" [class.invalid]="name?.invalid && name?.dirty">
+          <input formControlName="name" type="text" id="name"/>
+          <label for="name" [class.raised]="name?.value" [class.invalid]="name?.invalid && name?.dirty">
+            Имя
+          </label>
+          <div class="form-group-alerts">
+            <span class="error-message" *ngIf="name?.invalid && name?.dirty && !name?.value">
+              Необходимо указать имя
+            </span>
+            <span class="error-message" *ngIf="name?.invalid && name?.dirty && name?.value">
+              Минимальное количество символов 2
+            </span>
+          </div>
+        </div>
+        <div class="form-group" [class.invalid]="surname?.invalid && surname?.dirty">
+          <input formControlName="surname" type="text" id="surname"/>
+          <label for="surname" [class.raised]="surname?.value" [class.invalid]="surname?.invalid && surname?.dirty">
+            Фамилия
+          </label>
+          <div class="form-group-alerts">
+            <span class="error-message" *ngIf="surname?.invalid && surname?.dirty && !surname?.value">
+              Необходимо указать фамилию
+            </span>
+            <span class="error-message" *ngIf="surname?.invalid && surname?.dirty && surname?.value">
+              Минимальное количество символов 2
+            </span>
+          </div>
+        </div>
+        <div class="form-group" [class.invalid]="email?.invalid && email?.dirty">
+          <input formControlName="email" type="email" id="email"/>
+          <label for="email" [class.raised]="email?.value" [class.invalid]="email?.invalid && email?.dirty">
+            E-mail
+          </label>
+          <div class="form-group-alerts">
+            <span class="error-message" *ngIf="email?.invalid && email?.dirty && email?.value">
+              Некорректный e-mail адрес
+            </span>
+            <span class="error-message" *ngIf="email?.invalid && email?.dirty && !email?.value">
+              Необходимо ввести e-mail адрес
+            </span>
+          </div>
+        </div>
+        <div class="form-group" [class.invalid]="phone?.invalid && phone?.dirty">
+          <input [class.empty]="!phone?.value && phone?.dirty" [dropSpecialCharacters]="false" mask="+00000000000" formControlName="phone" type="text" id="phone"/>
+          <label for="phone" [class.raised]="phone?.value" [class.invalid]="phone?.invalid && phone?.dirty">
+            Телефон
+          </label>
+          <div class="form-group-alerts">
+            <span class="error-message" *ngIf="phone?.invalid && phone?.dirty && phone?.value">
+              Некорректный номер телефона
+            </span>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button type="button" class="button-action-cancel" (click)="closeDialog()">Отмена</button>
+          <button type="submit" class="button-action-next button-blue" [disabled]="formGroup.invalid">Сохранить</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

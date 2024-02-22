@@ -1,0 +1,156 @@
+@import "src/assets/styles/variables";
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(38, 50, 56, 0.32);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  .modal-content {
+    background-color: white;
+    padding: 44px 40px 40px;
+    border-radius: 20px;
+    width: 450px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+
+    .modal-title {
+      margin-bottom: 40px;
+
+      h2 {
+        font-family: "Roboto", sans-serif;
+        font-weight: 500;
+        font-size: 24px;
+        color: $color-text-title-modal;
+        line-height: 1;
+      }
+    }
+
+    .modal-form {
+
+      form {
+        display: flex;
+        flex-direction: column;
+        row-gap: 40px;
+
+        .form-group {
+
+          input {
+            outline: none;
+            box-sizing: border-box;
+            height: 56px;
+            width: 100%;
+            padding: 17px;
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+          }
+
+          .form-group-alerts {
+
+            .error-message {
+              color: $color-invalid;
+              font-size: 12px;
+              position: absolute;
+              bottom: -17px;
+              right: 0;
+              font-family: "Roboto", sans-serif;
+              font-weight: 400;
+              line-height: 1;
+            }
+          }
+        }
+
+        .form-actions {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          column-gap: 5px;
+
+          p {
+            font-size: 12px;
+            color: $color-invalid;
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            line-height: 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.form-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-group label {
+  position: absolute;
+  left: 14px;
+  transition: all 0.1s ease;
+  opacity: 0.5;
+  background-color: white;
+  padding: 0 4px;
+  color: $color-text-fonts-modal;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+
+  &.invalid {
+    color: $color-invalid;
+  }
+}
+
+.form-group input.ng-valid:not(:focus) + label.raised {
+  color: $color-form-filled;
+}
+.form-group input:focus + label,
+.form-group input + label.raised {
+  transform: translateY(-190%);
+  font-size: 12px;
+  opacity: 1;
+  color: $color-text-title;
+
+  &.invalid {
+    color: $color-invalid;
+  }
+}
+.form-group input.ng-valid.ng-dirty:focus,
+.form-group input.ng-pristine:focus {
+  border-color: $color-text-title;
+  &.empty {
+    border-color: $color-text-title;
+  }
+}
+.form-group input.ng-invalid:not(.ng-pristine) {
+  border-color: $color-invalid;
+}
+.form-group input.ng-valid.ng-dirty {
+  border-color: $color-form-filled;
+
+  &.empty {
+    border-color: $color-text-fonts-modal;
+  }
+}
+
+.form-group input {
+  width: 100%;
+  border: 1px solid $color-text-fonts-modal;
+  border-radius: 4px;
+  padding: 15px 10px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus::placeholder {
+  color: transparent;
+}

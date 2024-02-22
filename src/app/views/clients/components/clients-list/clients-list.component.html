@@ -1,0 +1,10 @@
+<div class="clients-list container">
+  <h2>Клиенты</h2>
+  <app-management-table
+    [clients]="clientsProps"
+    (openDialog)="openDialog()"
+    (openDialogWithClient)="openDialogWithClient($event)"
+    (openRemoveDialog)="openRemoveDialog($event)"
+    (onSortClients)="sortClients($event)"
+  ></app-management-table>
+</div>
